@@ -1,13 +1,12 @@
 package digital.tonima.dataestructures
 
-class LinkedList<T : Any?>(
-    value: T
-) {
+class LinkedList<T : Any?> constructor() {
+
     private var head: Node? = null
     private var tail: Node? = null
     private var length: Int = 0
 
-    init {
+    constructor(value: T) : this() {
         append(value)
     }
 
@@ -15,6 +14,10 @@ class LinkedList<T : Any?>(
         val value: T,
     ) {
         var next: Node? = null
+
+        override fun toString(): String {
+            return "Value $value - Next ${next?.value}"
+        }
     }
 
     fun append(value: T) {
@@ -25,6 +28,26 @@ class LinkedList<T : Any?>(
         tail?.next = newNode
         tail = newNode
         length++
+    }
+
+    fun removeLast(): Node? {
+        if (length == 0) return null
+        var temp = head
+        var pre = head
+        while (temp?.next != null) {
+            pre = temp
+            temp = temp.next
+        }
+        tail = pre
+        tail?.next = null
+        length--
+        if (length == 0) {
+            head = null
+            tail = null
+            return null
+        }
+        return temp
+
     }
 
     fun printList() {
