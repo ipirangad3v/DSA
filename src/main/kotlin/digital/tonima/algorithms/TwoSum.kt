@@ -1,6 +1,7 @@
 package digital.tonima.algorithms
 
 class Solution {
+    // Time: O(n), Space: O(n) - single pass through array with HashMap lookup O(1)
     fun twoSum(nums: IntArray, target: Int): IntArray? {
         // Map structure: Key = Number (Value), Value = Index
         // We name it 'seenNumbers' to indicate it holds the history of what we traversed.

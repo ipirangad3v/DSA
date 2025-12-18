@@ -11,7 +11,7 @@ class LinkedList<T : Any?> constructor() {
     }
 
     inner class Node(
-        val value: T,
+        var value: T,
     ) {
         var next: Node? = null
 
@@ -20,16 +20,33 @@ class LinkedList<T : Any?> constructor() {
         }
     }
 
+    // O(1) - constant operation since we have direct reference to tail
     fun append(value: T) {
         val newNode = Node(value)
         if (length == 0) {
             head = newNode
+            tail = newNode
+        } else {
+            tail?.next = newNode
+            tail = newNode
         }
-        tail?.next = newNode
-        tail = newNode
         length++
     }
 
+    // O(1) - constant operation since we have direct reference to head
+    fun prepend(value: T) {
+        val newNode = Node(value)
+        if (length == 0) {
+            head = newNode
+            tail = newNode
+        } else {
+            newNode.next = head
+            head = newNode
+        }
+        length++
+    }
+
+    // O(n) - linear operation since we need to traverse the list to find the second-to-last node
     fun removeLast(): Node? {
         if (length == 0) return null
         var temp = head
@@ -48,6 +65,36 @@ class LinkedList<T : Any?> constructor() {
         }
         return temp
 
+    }
+
+    // O(1) - constant operation since we only modify the head pointer
+    fun removeFirst(): Node? {
+        if (length == 0) return null
+        val lastHead = head
+        head = lastHead?.next
+        lastHead?.next = null
+        length--
+        if (length == 0) tail = null
+        return lastHead
+    }
+
+    // O(n) - linear operation since we traverse up to the index position
+    fun get(index: Int): Node? {
+        if (index < 0 || index >= length) return null
+        var temp = head
+        for (i in 0 until index) {
+            temp = temp?.next
+        }
+        return temp
+    }
+
+    // O(n) - linear operation since we traverse up to the index position
+    fun set(index: Int, value: T): Boolean {
+        get(index)?.let {
+            it.value = value
+            return true
+        }
+        return false
     }
 
     fun printList() {
