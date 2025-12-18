@@ -64,7 +64,6 @@ class LinkedList<T : Any?> constructor() {
         if (length == 0) {
             head = null
             tail = null
-            return null
         }
         return current
 
