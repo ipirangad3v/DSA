@@ -29,6 +29,11 @@ This project implements fundamental data structures and algorithms with emphasis
   - LeetCode #1
 
 #### Linked List
+- **[Binary Number to Decimal](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)** - Convert binary number in a linked list to integer
+  - Time: O(n), Space: O(1)
+  - Uses bit manipulation (left shift and OR operations)
+  - LeetCode #1290
+
 - **[Find Middle Node](https://leetcode.com/problems/middle-of-the-linked-list/)** - Find the middle node of a linked list
   - Time: O(n), Space: O(1)
   - Uses two-pointers technique (slow/fast)
@@ -89,6 +94,7 @@ open build/reports/tests/test/index.html
 ### Included Tests
 
 - `TwoSumTest`: Validates the Two Sum algorithm
+- `BinaryLinkedListToDecimalTest`: Tests binary to decimal conversion
 - `FindMiddleNodeTest`: Tests the Find Middle algorithm
 - `HasCycleTest`: Tests cycle detection in linked lists
 - `RemoveNthFromEndTest`: Tests removal of nth element
@@ -120,6 +126,7 @@ println(list.size) // 4
 | Algorithm | Time | Space | Details |
 |-----------|------|-------|---------|
 | Two Sum | O(n) | O(n) | HashMap lookup |
+| Binary to Decimal | O(n) | O(1) | Bit manipulation |
 | Find Middle | O(n) | O(1) | Two pointers |
 | Has Cycle | O(n) | O(1) | Floyd algorithm |
 | Remove Nth | O(n) | O(1) | Two pointers |
@@ -136,17 +143,19 @@ println(list.size) // 4
 
 All algorithms in this project are based on classic LeetCode problems:
 
-- **#1**: [Two Sum](https://leetcode.com/problems/two-sum/) - Medium
+- **#1**: [Two Sum](https://leetcode.com/problems/two-sum/) - Easy
 - **#19**: [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Medium
 - **#141**: [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) - Easy
 - **#876**: [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) - Easy
+- **#1290**: [Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/) - Easy
 
 ## 📝 License
 
 This project is open source and can be freely used for educational purposes.
 
-
 ---
 
 **Last Updated**: December 2025
+
+
 

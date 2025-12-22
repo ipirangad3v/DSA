@@ -172,6 +172,27 @@ class LinkedList<T : Any?> constructor() {
         return slow
     }
 
+    fun removeDuplicates() {
+        val values = mutableSetOf<T>()
+        var previous: Node? = null
+        var current = head
+
+        while (current != null) {
+            if (values.contains(current.value)) {
+                previous?.next = current.next
+                length--
+            } else {
+                values.add(current.value)
+                previous = current
+            }
+            current = current.next
+        }
+
+        // Atualiza tail caso o último elemento tenha sido removido
+        tail = previous
+    }
+
+
     fun printList() {
         println("Items:")
         var currentNode = head
@@ -179,6 +200,24 @@ class LinkedList<T : Any?> constructor() {
             println("${currentNode.value}" + " next value: ${currentNode.next?.value}")
             currentNode = currentNode.next
         }
+    }
+
+    fun LinkedList<Int>.binaryToDecimal(): Int {
+        if (head == null) return 0
+
+        var num = 0
+        var current = head
+
+        while (current != null) {
+            // Multiplica o que já temos por 2 e soma o bit atual
+            num = (num * 2) + current.value
+
+
+            // Move para o próximo nó (evita o loop infinito)
+            current = current.next
+        }
+
+        return num
     }
 
     fun getHead() {
