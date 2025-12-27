@@ -33,7 +33,7 @@ jobs:
 
     - name: Upload HTML test report
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: html-test-report
         path: build/reports/tests/test/index.html
